@@ -4,14 +4,14 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NorthwindTest.Entities
-{
+{ //
     [Table("employees")]
     public partial class Employees
     {
         public Employees()
         {
             Orders = new HashSet<Orders>();
-        }
+        }  // 
 
         [Key]
         [Column("id")]

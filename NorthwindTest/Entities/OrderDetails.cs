@@ -7,7 +7,7 @@ namespace NorthwindTest.Entities
 {
     [Table("order_details")]
     public partial class OrderDetails
-    {
+    { 
         [Key]
         [Column("order_id")]
         public int OrderId { get; set; }
