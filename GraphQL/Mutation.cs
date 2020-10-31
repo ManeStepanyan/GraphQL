@@ -1,4 +1,5 @@
 ﻿using GraphQL.Data;
+using GraphQL.Extensions;
 using HotChocolate;
 using NorthwindTest.Entities;
 using System;
@@ -10,6 +11,7 @@ namespace GraphQL
 {
     public class Mutation
     {
+        [UseApplicationDbContext]
         public async Task<AddCustomerPayload> AddCustomerAsync(AddCustomerInput input, [Service] ApplicationDbContext context)
         {
             var customer = new Customers
