@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NorthwindTest.Entities;
 
-namespace WebApplication1.Controllers
+namespace GraphQL.Controllers
 {
     [ApiController]
     [Route("[controller]")]

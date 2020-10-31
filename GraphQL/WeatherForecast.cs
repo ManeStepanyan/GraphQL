@@ -1,6 +1,6 @@
 using System;
 
-namespace WebApplication1
+namespace GraphQL
 {
     public class WeatherForecast
     {

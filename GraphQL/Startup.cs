@@ -14,7 +14,7 @@ using Microsoft.Extensions.Logging;
 using NorthwindTest.Entities;
 using HotChocolate;
 
-namespace WebApplication1
+namespace GraphQL
 {
     public class Startup
     {
@@ -31,7 +31,8 @@ namespace WebApplication1
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer("server=.;Database=northwind;Trusted_Connection=True;"));
             services.AddGraphQLServer() // Register graphql schema
-                    .AddQueryType<Query>();
+                    .AddQueryType<Query>()
+                    .AddMutationType<Mutation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
