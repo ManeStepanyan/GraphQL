@@ -29,7 +29,7 @@ namespace GraphQL
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer("server=.;Database=northwind;Trusted_Connection=True;"));
+            services.AddPooledDbContextFactory<ApplicationDbContext>(options => options.UseSqlServer("server=.;Database=northwind;Trusted_Connection=True;"));
             services.AddGraphQLServer() // Register graphql schema
                     .AddQueryType<Query>()
                     .AddMutationType<Mutation>();
