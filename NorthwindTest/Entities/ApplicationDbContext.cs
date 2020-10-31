@@ -15,7 +15,7 @@ namespace NorthwindTest.Entities
         { 
         }
 
-        public virtual DbSet<Customers> Customers { get; set; }
+        public virtual DbSet<Customers> Customers { get; set; } = default!;
         public virtual DbSet<Employees> Employees { get; set; }
         public virtual DbSet<OrderDetails> OrderDetails { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }

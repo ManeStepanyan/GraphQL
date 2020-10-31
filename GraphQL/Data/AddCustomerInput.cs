@@ -8,5 +8,6 @@ namespace GraphQL.Data
     public class AddCustomerInput
     {
         public int Id { get; set; }
+        public string? Surname { get; set; }
     }
 }

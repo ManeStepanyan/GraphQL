@@ -14,7 +14,8 @@ namespace GraphQL
         {
             var customer = new Customers
             {
-                Id = input.Id
+                Id = input.Id,
+                LastName = input.Surname
             };
             context.Customers.Add(customer);
             await context.SaveChangesAsync();
