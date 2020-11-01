@@ -11,7 +11,7 @@ namespace NorthwindTest.Entities
         public Employees()
         {
             Orders = new HashSet<Orders>();
-        }  // 
+        }  
 
         [Key]
         [Column("id")]
@@ -59,6 +59,6 @@ namespace NorthwindTest.Entities
         public string? Country { get; set; }
 
         [InverseProperty("Employee")]
-        public virtual ICollection<Orders> Orders { get; set; }
+        public virtual ICollection<Orders>? Orders { get; set; }
     }
 }

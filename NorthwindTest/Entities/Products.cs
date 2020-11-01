@@ -18,13 +18,13 @@ namespace NorthwindTest.Entities
         public int Id { get; set; }
         [Column("product_code")]
         [StringLength(25)]
-        public string ProductCode { get; set; }
+        public string? ProductCode { get; set; }
         [Column("product_name")]
         [StringLength(50)]
-        public string ProductName { get; set; }
+        public string? ProductName { get; set; }
         [Column("description")]
         [StringLength(250)]
-        public string Description { get; set; }
+        public string? Description { get; set; }
         [Column("standard_cost", TypeName = "decimal(19, 4)")]
         public decimal? StandardCost { get; set; }
         [Column("list_price", TypeName = "decimal(19, 4)")]
@@ -37,14 +37,14 @@ namespace NorthwindTest.Entities
         public int? MinimumReorderQuantity { get; set; }
         [Column("quantity_per_unit")]
         [StringLength(50)]
-        public string QuantityPerUnit { get; set; }
+        public string? QuantityPerUnit { get; set; }
         [Column("discontinued")]
         public byte Discontinued { get; set; }
         [Column("category")]
         [StringLength(50)]
-        public string Category { get; set; }
+        public string? Category { get; set; }
 
         [InverseProperty("Product")]
-        public virtual ICollection<OrderDetails> OrderDetails { get; set; }
+        public virtual ICollection<OrderDetails>? OrderDetails { get; set; }
     }
 }

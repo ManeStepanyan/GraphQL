@@ -13,6 +13,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NorthwindTest.Entities;
 using HotChocolate;
+using GraphQL.DataLoader;
+using GraphQL.Types;
 
 namespace GraphQL
 {
@@ -32,7 +34,9 @@ namespace GraphQL
             services.AddPooledDbContextFactory<ApplicationDbContext>(options => options.UseSqlServer("server=.;Database=northwind;Trusted_Connection=True;"));
             services.AddGraphQLServer() // Register graphql schema
                     .AddQueryType<Query>()
-                    .AddMutationType<Mutation>();
+                    .AddMutationType<Mutation>()
+                    .AddType<CustomerType>()
+                    .AddDataLoader<CustomerByIdDataLoader>().AddDataLoader<OrderByIdDataLoader>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

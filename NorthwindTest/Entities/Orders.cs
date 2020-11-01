@@ -26,43 +26,43 @@ namespace NorthwindTest.Entities
         public DateTime? ShippedDate { get; set; }
         [Column("ship_name")]
         [StringLength(50)]
-        public string ShipName { get; set; }
+        public string? ShipName { get; set; }
         [Column("ship_address1")]
         [StringLength(150)]
-        public string ShipAddress1 { get; set; }
+        public string? ShipAddress1 { get; set; }
         [Column("ship_address2")]
         [StringLength(150)]
-        public string ShipAddress2 { get; set; }
+        public string? ShipAddress2 { get; set; }
         [Column("ship_city")]
         [StringLength(50)]
-        public string ShipCity { get; set; }
+        public string? ShipCity { get; set; }
         [Column("ship_state")]
         [StringLength(50)]
-        public string ShipState { get; set; }
+        public string? ShipState { get; set; }
         [Column("ship_postal_code")]
         [StringLength(50)]
-        public string ShipPostalCode { get; set; }
+        public string? ShipPostalCode { get; set; }
         [Column("ship_country")]
         [StringLength(50)]
-        public string ShipCountry { get; set; }
+        public string? ShipCountry { get; set; }
         [Column("shipping_fee", TypeName = "decimal(19, 4)")]
         public decimal? ShippingFee { get; set; }
         [Column("payment_type")]
         [StringLength(50)]
-        public string PaymentType { get; set; }
+        public string? PaymentType { get; set; }
         [Column("paid_date", TypeName = "datetime")]
         public DateTime? PaidDate { get; set; }
         [Column("order_status")]
         [StringLength(25)]
-        public string OrderStatus { get; set; }
+        public string? OrderStatus { get; set; }
 
         [ForeignKey(nameof(CustomerId))]
         [InverseProperty(nameof(Customers.Orders))]
-        public virtual Customers Customer { get; set; }
+        public virtual Customers? Customer { get; set; }
         [ForeignKey(nameof(EmployeeId))]
         [InverseProperty(nameof(Employees.Orders))]
-        public virtual Employees Employee { get; set; }
+        public virtual Employees? Employee { get; set; }
         [InverseProperty("Order")]
-        public virtual ICollection<OrderDetails> OrderDetails { get; set; }
+        public virtual ICollection<OrderDetails>? OrderDetails { get; set; }
     }
 }
