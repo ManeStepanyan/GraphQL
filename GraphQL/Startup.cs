@@ -15,6 +15,7 @@ using NorthwindTest.Entities;
 using HotChocolate;
 using GraphQL.DataLoader;
 using GraphQL.Types;
+using HotChocolate.AspNetCore;
 
 namespace GraphQL
 {
@@ -36,6 +37,8 @@ namespace GraphQL
                     .AddQueryType<Query>()
                     .AddMutationType<Mutation>()
                     .AddType<CustomerType>()
+                    .AddInMemorySubscriptions()
+                    .AddSubscriptionType<CustomerSubscriptions>()
                     .AddDataLoader<CustomerByIdDataLoader>().AddDataLoader<OrderByIdDataLoader>();
         }
 
@@ -44,10 +47,13 @@ namespace GraphQL
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                //  app.UseDeveloperExceptionPage();
+                app.UsePlayground( );
             }
 
             app.UseHttpsRedirection();
+
+            app.UseWebSockets(); // handle websocket request
 
             app.UseRouting();
 

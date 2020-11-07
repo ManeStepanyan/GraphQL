@@ -1,6 +1,7 @@
 ﻿using GraphQL.Data;
 using GraphQL.Extensions;
 using HotChocolate;
+using HotChocolate.Subscriptions;
 using NorthwindTest.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace GraphQL
     public class Mutation
     {
         [UseApplicationDbContext]
-        public async Task<AddCustomerPayload> AddCustomerAsync(AddCustomerInput input, [Service] ApplicationDbContext context)
+        public async Task<AddCustomerPayload> AddCustomerAsync(AddCustomerInput input, [ScopedService] ApplicationDbContext context, [Service] ITopicEventSender eventSender)
         {
             var customer = new Customers
             {
@@ -21,6 +22,7 @@ namespace GraphQL
             };
             context.Customers.Add(customer);
             await context.SaveChangesAsync();
+            await eventSender.SendAsync(nameof(CustomerSubscriptions.OnCustomerCreationAsync), customer.Id);
             return new AddCustomerPayload(customer);
         }
     }

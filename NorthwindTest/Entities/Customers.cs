@@ -51,6 +51,6 @@ namespace NorthwindTest.Entities
         public string? Country { get; set; }
 
         [InverseProperty("Customer")]
-        public virtual ICollection<Orders>? Orders { get; set; } = new List<Orders>();
+        public virtual ICollection<Orders>? Orders { get; set; }
     }
 }
